@@ -11,6 +11,7 @@
 		{ "src": "*.png", "use": "@vercel/static" }
 	],
 	"routes": [
+		{ "src": "/(.*)\.(js|css|png|jpg|jpeg|gif|svg|ico)", "dest": "/$1.$2" },
 		{ "src": "/(.*)", "dest": "/index.html" }
 	]
 }
