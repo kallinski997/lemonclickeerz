@@ -1,6 +1,8 @@
+console.log('upgrades.js geladen');
 window.permaBoosts = window.permaBoosts || { dblClick: false, passive: 0, autoClick: 0, mult: 1, lucky: false, discount: false };
 
 function updateUpgradesUI() {
+  console.log('updateUpgradesUI aufgerufen');
   let html = `<h2>Permaboosts / permanente Upgrades</h2>`;
   html += `<div>
     <button onclick="buyDblClick()" ${window.permaBoosts.dblClick ? "disabled" : ""}>

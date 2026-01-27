@@ -1,5 +1,7 @@
+console.log('shop.js geladen');
 const shopBtn = document.getElementById('shop-btn');
 const shopPopup = document.getElementById('shop-popup');
+console.log('shopBtn:', shopBtn, 'shopPopup:', shopPopup);
 
 // Beispiel-Shoppakete
 const SHOP_PACKAGES = [
@@ -10,6 +12,7 @@ const SHOP_PACKAGES = [
 
 // Shop anzeigen
 shopBtn.onclick = () => {
+  console.log('Shop-Button geklickt');
   let html = `<h2>Shop: Coins kaufen</h2>`;
   SHOP_PACKAGES.forEach(pkg => {
     html += `<div style="margin:15px;">

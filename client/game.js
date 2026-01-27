@@ -1,3 +1,4 @@
+console.log('game.js geladen');
 let lemons = 0, premium = 0, clickValue = 1, totalClicks = 0, wallet = 0, upgrades = {}, shopItems = [];
 window.userCoins = window.userCoins || 0;
 window.userBoosters = window.userBoosters || 0;
@@ -8,6 +9,7 @@ const lemonCountDiv = document.getElementById('lemon-count');
 const premiumSpan = document.getElementById('premium');
 const mainObj = document.getElementById('main-object');
 const upgradeBtn = document.getElementById('upgrade-btn');
+console.log('mainObj:', mainObj, 'upgradeBtn:', upgradeBtn);
 
 // Klickzähler-Anzeige hinzufügen
 let clickCounter = document.createElement('div');
@@ -31,6 +33,7 @@ function randomColor() {
 }
 
 mainObj.onclick = () => {
+  console.log('Zitrone geklickt');
   // Boost und Upgrades berücksichtigen
   let mult = 1;
   if (boostActive) mult *= boostMultiplier;
@@ -68,6 +71,7 @@ window.setPermaBoosts = function(boosts) {
 };
 
 upgradeBtn.onclick = () => {
+  console.log('Upgrade-Button geklickt');
   if (lemons >= 50) {
     lemons -= 50;
     clickValue += 1;
