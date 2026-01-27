@@ -104,22 +104,9 @@ function saveUpgrades() {
 
 updateUpgradesUI();
 
-const origClickHandler = window.mainObj.onclick;
-window.mainObj.onclick = function() {
-  let mult = boostActive ? boostMultiplier : 1;
-  mult *= (window.permaBoosts.dblClick ? 2 : 1);
-  mult *= window.permaBoosts.mult;
-  // Lucky Coin: 1% Chance (wenn Upgrade aktiv)
-  if (window.permaBoosts.lucky && Math.random() < 0.01) {
-    window.userCoins += 100;
-    // Option: Animation für Gold-Coin
-  }
-  lemons += clickValue * mult;
-  updateUI();
-  window.clicks += 1;
-  window.mainObj.classList.add('active');
-  setTimeout(() => window.mainObj.classList.remove('active'), 80);
-};
+
+// Upgrades an game.js melden
+if (window.setPermaBoosts) window.setPermaBoosts(window.permaBoosts);
 
 // Automatische (passive) Coins
 setInterval(() => {

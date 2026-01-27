@@ -1,4 +1,7 @@
 let lemons = 0, premium = 0, clickValue = 1, totalClicks = 0, wallet = 0, upgrades = {}, shopItems = [];
+let boostActive = false;
+let boostMultiplier = 3;
+let permaBoosts = window.permaBoosts || { dblClick: false, passive: 0, autoClick: 0, mult: 1, lucky: false, discount: false };
 const lemonCountDiv = document.getElementById('lemon-count');
 const premiumSpan = document.getElementById('premium');
 const mainObj = document.getElementById('main-object');
@@ -26,11 +29,21 @@ function randomColor() {
 }
 
 mainObj.onclick = () => {
-  lemons += clickValue;
+  // Boost und Upgrades berücksichtigen
+  let mult = 1;
+  if (boostActive) mult *= boostMultiplier;
+  if (permaBoosts.dblClick) mult *= 2;
+  if (permaBoosts.mult) mult *= permaBoosts.mult;
+  // Lucky Coin: 1% Chance (wenn Upgrade aktiv)
+  if (permaBoosts.lucky && Math.random() < 0.01) {
+    wallet += 100;
+    // Optional: Animation für Gold-Coin
+  }
+  lemons += clickValue * mult;
   totalClicks++;
   updateUI();
+  // Animation
   mainObj.classList.add('active');
-  // Hintergrund animieren
   let origBg = document.body.style.background;
   let color = randomColor();
   document.body.style.background = color;
@@ -40,6 +53,16 @@ mainObj.onclick = () => {
   }, 120);
   // Nach jedem Klick speichern (wenn Telegram-User vorhanden)
   if (window.tgUserId) saveProgress();
+};
+// Boost-Status von ads.js setzen können
+window.setBoostActive = function(active, multiplier = 3) {
+  boostActive = active;
+  boostMultiplier = multiplier;
+};
+
+// Upgrades von upgrades.js synchronisieren
+window.setPermaBoosts = function(boosts) {
+  permaBoosts = boosts;
 };
 
 upgradeBtn.onclick = () => {

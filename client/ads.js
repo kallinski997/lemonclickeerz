@@ -54,15 +54,14 @@ function activateBoost() {
   updateBoostTimer();
 }
 
-const oldClickHandler = window.mainObj.onclick;
-window.mainObj.onclick = function() {
-  let mult = boostActive ? boostMultiplier : 1;
-  lemons += clickValue * mult;
-  updateUI();
-  window.clicks += 1;
-  window.mainObj.classList.add('active');
-  setTimeout(() => window.mainObj.classList.remove('active'), 80);
-};
+
+// Boost-Status an game.js melden
+function activateBoost() {
+  boostActive = true;
+  boostEndTimestamp = Date.now() + boostDurationMs;
+  if (window.setBoostActive) window.setBoostActive(true, boostMultiplier);
+  updateBoostTimer();
+}
 
 function updateBoostTimer() {
   const timerSpan = document.getElementById('boost-timer');
@@ -78,6 +77,7 @@ function updateBoostTimer() {
       timerSpan.textContent = `⬆ Boost aktiv: ${min}:${sec.toString().padStart(2, '0')} min`;
     } else {
       boostActive = false;
+      if (window.setBoostActive) window.setBoostActive(false);
       timerSpan.textContent = "";
       clearInterval(interval);
     }
