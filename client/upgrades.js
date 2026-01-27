@@ -41,6 +41,7 @@ window.buyDblClick = function() {
     window.permaBoosts.dblClick = true;
     updateShopUI();
     updateUpgradesUI();
+    if (window.tgUserId) saveUpgrades();
   }
 };
 window.buyPassive = function() {
@@ -49,6 +50,7 @@ window.buyPassive = function() {
     window.permaBoosts.passive = (window.permaBoosts.passive || 0) + 1;
     updateShopUI();
     updateUpgradesUI();
+    if (window.tgUserId) saveUpgrades();
   }
 };
 window.buyAutoClick = function() {
@@ -57,6 +59,7 @@ window.buyAutoClick = function() {
     window.permaBoosts.autoClick = (window.permaBoosts.autoClick || 0) + 1;
     updateShopUI();
     updateUpgradesUI();
+    if (window.tgUserId) saveUpgrades();
   }
 };
 window.buyMultiplier = function() {
@@ -65,6 +68,7 @@ window.buyMultiplier = function() {
     window.permaBoosts.mult *= 2;
     updateShopUI();
     updateUpgradesUI();
+    if (window.tgUserId) saveUpgrades();
   }
 };
 window.buyLucky = function() {
@@ -73,6 +77,7 @@ window.buyLucky = function() {
     window.permaBoosts.lucky = true;
     updateShopUI();
     updateUpgradesUI();
+    if (window.tgUserId) saveUpgrades();
   }
 };
 window.buyDiscount = function() {
@@ -81,8 +86,21 @@ window.buyDiscount = function() {
     window.permaBoosts.discount = true;
     updateShopUI();
     updateUpgradesUI();
+    if (window.tgUserId) saveUpgrades();
   }
 };
+// Upgrades im Backend speichern
+function saveUpgrades() {
+  fetch('/api/save', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      tgId: window.tgUserId,
+      upgrades: window.permaBoosts,
+      wallet: window.userCoins
+    })
+  });
+}
 
 updateUpgradesUI();
 

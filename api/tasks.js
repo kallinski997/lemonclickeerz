@@ -13,7 +13,17 @@ function todayStr() {
 
 export default function handler(req, res) {
   const { tgId, action, value, referredBy } = req.body;
-  if (!USERS[tgId]) USERS[tgId] = { lemons: 0, premium: 0, tasks: {}, clicks: 0, invites: 0, lastLogin: null };
+  if (!USERS[tgId]) USERS[tgId] = {
+    lemons: 0,
+    premium: 0,
+    tasks: {},
+    clicks: 0,
+    invites: 0,
+    lastLogin: null,
+    upgrades: {},
+    wallet: 0,
+    shopItems: []
+  };
 
   // Klick-Task (zählt Klicks z.B. individuell im Frontend mit window.clicks)
   if (action === "clicks500" && value >= TASKS.clicks500.target) {

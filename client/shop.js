@@ -33,6 +33,18 @@ window.buyPackage = function(currency, amount, coins, boosters) {
   // Nach erfolgreichem Kauf:
   window.userCoins = (window.userCoins || 0) + coins;
   window.userBoosters = (window.userBoosters || 0) + boosters;
+  // Shop-Items im Backend speichern
+  if (window.tgUserId) {
+    fetch('/api/save', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        tgId: window.tgUserId,
+        shopItems: [{currency, amount, coins, boosters, date: Date.now()}],
+        wallet: window.userCoins
+      })
+    });
+  }
   updateShopUI();
   closeShop();
 };
