@@ -1,0 +1,5 @@
+body { text-align: center; font-family: sans-serif; background: #F6F8C9; }
+#main-object { width: 150px; cursor: pointer; transition: transform .1s;}
+#main-object.active { transform: scale(1.12);}
+#shop-popup { position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background: #fff; border: 2px solid #ccc; padding: 30px; border-radius: 12px;}
+button { margin: 8px; }
