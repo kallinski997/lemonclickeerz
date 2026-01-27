@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Lemon Clicker WebApp</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Lemon Clicker 🍋</h1>
+  <div id="telegram-user"></div>
+  <div id="game">
+    <img id="main-object" src="lemon.png" alt="Lemon" style="border-radius:50%;box-shadow:0 0 24px #ffe066;" />
+    <div id="lemon-count">0 Zitronen</div>
+    <div id="premium-count">Premium: <span id="premium">0</span></div>
+    <button id="shop-btn">Shop 💎</button>
+    <div id="shop-popup" style="display:none;"></div>
+    <button id="upgrade-btn">Klick-Upgrade</button>
+  </div>
+  <div id="upgrades"></div>
+  <button id="wallet-btn" style="margin:24px;font-size:1.2em;background:#ffe066;border-radius:8px;padding:12px 24px;box-shadow:0 0 8px #f7b801;">TON Wallet verbinden</button>
+  <div id="wallet-btn-hint" style="margin-bottom:24px;color:#888;font-size:1em;">Hinweis: Wenn dieser Button nicht sichtbar ist, bitte Seite neu laden (Strg+F5) oder Browser-Cache leeren.</div>
+  <script src="game.js"></script>
+  <script src="telegram.js"></script>
+  <script src="shop.js"></script>
+  <script src="upgrades.js"></script>
+  <script src="ads.js"></script>
+  <script src="tasks.js"></script>
+</body>
+</html>
