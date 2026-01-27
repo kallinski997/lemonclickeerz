@@ -1,4 +1,16 @@
 # Vercel Deployment Configuration
 
 # This file tells Vercel to use the client directory as the root for deployment.
-{"version": 2, "public": true, "builds": [{"src": "index.html", "use": "@vercel/static"}], "routes": [{"src": "/(.*)", "dest": "/index.html"}]}
+{
+	"version": 2,
+	"public": true,
+	"builds": [
+		{ "src": "index.html", "use": "@vercel/static" },
+		{ "src": "*.css", "use": "@vercel/static" },
+		{ "src": "*.js", "use": "@vercel/static" },
+		{ "src": "*.png", "use": "@vercel/static" }
+	],
+	"routes": [
+		{ "src": "/(.*)", "dest": "/index.html" }
+	]
+}
