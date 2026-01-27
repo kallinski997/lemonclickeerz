@@ -1,4 +1,6 @@
 let lemons = 0, premium = 0, clickValue = 1, totalClicks = 0, wallet = 0, upgrades = {}, shopItems = [];
+window.userCoins = window.userCoins || 0;
+window.userBoosters = window.userBoosters || 0;
 let boostActive = false;
 let boostMultiplier = 3;
 let permaBoosts = window.permaBoosts || { dblClick: false, passive: 0, autoClick: 0, mult: 1, lucky: false, discount: false };
