@@ -1,2 +1,12 @@
 .vercel
 .env*.local
+node_modules
+www
+
+# Android
+android/.gradle
+android/.idea
+android/app/build
+android/build
+*.apk
+*.aab

@@ -1,0 +1,6 @@
+{
+  "appId": "com.lemonclicker.app",
+  "appName": "Lemon Clicker",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
