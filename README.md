@@ -9,6 +9,30 @@ Clicker-Game als Telegram MiniApp inkl. Shop und Vercel Serverless Backend.
 - Shop für TON/Premium via Dummy (Vorlage für Payment mit TON/USD/Stars)
 - Backend als Vercel Serverless Functions (`/api`)
 - Fortschritt per Telegram User-ID gespeichert
+- **NEU: Android APK Build-Unterstützung** 📱
+
+## Android APK erstellen
+
+Die App kann als native Android-Anwendung gebaut werden! 
+
+### Schnellstart
+
+```bash
+# 1. Abhängigkeiten installieren
+npm install
+
+# 2. APK erstellen
+./build-apk.sh
+```
+
+Die fertige APK findest du dann unter: `android/app/build/outputs/apk/debug/app-debug.apk`
+
+📖 **Ausführliche Anleitung**: Siehe [BUILD_APK.md](BUILD_APK.md) für detaillierte Informationen über:
+- Voraussetzungen und Setup
+- Debug und Release Builds
+- Signierung der APK
+- Installation auf Geräten
+- Anpassung von Icons und Namen
 
 ## Deployment
 

@@ -1,0 +1,20 @@
+{
+  "name": "lemonclickeerz",
+  "version": "1.0.0",
+  "description": "Clicker-Game als Telegram MiniApp inkl. Shop und Vercel Serverless Backend.",
+  "main": "ads.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sync": "npx cap sync android",
+    "build:apk": "cd android && ./gradlew assembleDebug",
+    "build:apk-release": "cd android && ./gradlew assembleRelease"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@capacitor/android": "^8.0.2",
+    "@capacitor/cli": "^7.4.5",
+    "@capacitor/core": "^8.0.2"
+  }
+}
